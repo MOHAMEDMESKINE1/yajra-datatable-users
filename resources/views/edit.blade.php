@@ -7,9 +7,11 @@
     <div class="container">
         <div class="row">
          <div class="col-md-8 mx-auto ">
+            <a href="{{ route('users.index') }}" class="btn btn-dark mb-2">Go Back</a>
+
              <div class="card border-secondary shadow-sm">
                <div class="card-header">
-                 <h2>Add User</h2>
+                 <h2>Update User</h2>
               </div>
                <div class="card-body">
                 
@@ -36,7 +38,7 @@
                              @enderror
                          </div>
                         <div class="my-3">
-                             <button type="submit" class="btn btn-primary">Add User</button>
+                             <button type="submit" class="btn btn-primary">Update User</button>
                         </div>
                      </form>
                </div>

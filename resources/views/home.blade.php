@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     <div class=" d-flex justify-content-end mb-3">
-                        <a href="{{ route('users.create') }}" class="btn btn-primary">Add Student</a>
+                        <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
                     </div>
                     {{ $dataTable->table() }}
                    

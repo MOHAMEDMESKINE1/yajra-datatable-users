@@ -6,9 +6,12 @@
     <div class="container">
        <div class="row">
         <div class="col-md-8 mx-auto ">
+            <a href="{{ route('users.index') }}" class="btn btn-dark mb-2">Go Back</a>
+
             <div class="card border-secondary shadow-sm">
               <div class="card-header">
                 <h2>Add User</h2>
+
              </div>
               <div class="card-body">
                
