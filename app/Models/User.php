@@ -8,16 +8,18 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Scout\Searchable;
 
-class User extends Authenticatable
+class User extends Authenticatable   
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable ,Searchable ;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    
     protected $fillable = [
         'name',
         'email',
@@ -59,4 +61,5 @@ class User extends Authenticatable
         // Customize the date format as needed
         return $date->format('Y-m-d H:i'); // Adjust the format to your preference
     }
+
 }

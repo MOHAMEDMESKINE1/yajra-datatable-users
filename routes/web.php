@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Events\Message;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -21,3 +22,13 @@ Route::resource('users', UsersController::class);
 
 // Route::get("/chat/{user_id}",[ChatController::class,"chatForm"])->middleware("auth");
 Route::post("/chat/send-message",[ChatController::class,"sendMessage"])->middleware("auth");
+
+
+Route::controller(ArticleController::class)
+->middleware('auth')
+->prefix('articles')
+->name('articles.')
+->group(function(){
+        Route::get('/','index')->name('index');
+        Route::post('store','store')->name('store');
+});

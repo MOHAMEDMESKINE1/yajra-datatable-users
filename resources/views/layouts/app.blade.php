@@ -16,6 +16,8 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @stack("links")
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
 </head>
 <body>
     <div id="app">
@@ -26,6 +28,9 @@
                 </a>
                 <a class="navbar-brand" href="{{ url('/chat') }}">
                    Chat
+                </a>
+                <a class="navbar-brand" href="{{ route('articles.index')}}">
+                   Articles
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -82,5 +87,7 @@
     </div>
 
     @stack('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\DataTables\UsersDataTable;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -23,10 +24,13 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index(UsersDataTable $dataTable)
     {
         return $dataTable->render('home');
     }
+
+  
     public function create()
     {
         return view('create');
@@ -40,7 +44,11 @@ class UsersController extends Controller
             'password' => 'required',
         ]);
 
-        User::create($request->all());
+        User::create([
+            'name' => $request->name,
+             'email' => $request->email,
+             'password' => Hash::make($request->password),
+        ]);
 
         return redirect('/users')->with('success', 'User created successfully');
     }
