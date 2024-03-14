@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Events\Message;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Excel\Excelcontroller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -31,4 +32,12 @@ Route::controller(ArticleController::class)
 ->group(function(){
         Route::get('/','index')->name('index');
         Route::post('store','store')->name('store');
+        Route::post('edit/article/{article}','update')->name('update');
+});
+
+Route::controller(Excelcontroller::class)->group(function(){
+
+    Route::get('/excel','index')->name('excel.index');
+    Route::post('/import','importExcelData')->name('import.excel');
+
 });

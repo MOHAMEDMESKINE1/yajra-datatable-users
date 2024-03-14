@@ -44,10 +44,26 @@ class ArticleController extends Controller
          
         // ]);
         Article::create([
-            'title' => $request->name,
+            'title' => $request->title,
             'content' => $request->content,
 
          
+        ]);
+
+        return redirect()->route('articles.index')->with('success', 'User created successfully');
+    }
+    public function update(Request $request,Article $article)
+    {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+      
+       
+       $article->update([
+            'title' => $request->title,
+            'content' => $request->content,
         ]);
 
         return redirect()->route('articles.index')->with('success', 'User created successfully');
