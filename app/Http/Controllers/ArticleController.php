@@ -61,10 +61,7 @@ class ArticleController extends Controller
 
       
        
-       $article->update([
-            'title' => $request->title,
-            'content' => $request->content,
-        ]);
+       $article->update($request->all());
 
         return redirect()->route('articles.index')->with('success', 'User created successfully');
     }
